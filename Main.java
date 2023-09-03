@@ -1,52 +1,53 @@
 import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
+        ShapeNamePrinter printer = new ShapeNamePrinter();
         Shape circle = new Circle();
         Shape quad = new Quad();
         Shape star = new Star();
         Shape hexagon = new Hexagon();
         Shape line = new Line();
-        Shape thriangle = new Thriangle();
+        Shape triangle = new Thriangle();
 
         Scanner in = new Scanner(System.in);
         System.out.print("Input a number shape: \n1. Circle\n2. Quad\n" +
                 "3. Star\n4. Hexagon\n5. Line\n6. Triangle\n");
         int num = in.nextInt();
 
-        if(num<1||num>6){
-            System.out.println("Invalid number!");}
-        else if(num==1){
-            System.out.println(circle.toString());
+        if (num < 1 || num > 6) {
+            System.out.println("Invalid number!");
+        } else if (num == 1) {
+            printer.printShapeName(circle);
             circle.example();
-        }
-        else if(num==2){
-            System.out.println(quad.toString());
+        } else if (num == 2) {
+            printer.printShapeName(quad);
             quad.example();
-        }
-        else if(num==3){
-            System.out.println(star.toString());
+        } else if (num == 3) {
+            printer.printShapeName(star);
             star.example();
-        }
-        else if(num==4){
-            System.out.println(hexagon.toString());
+        } else if (num == 4) {
+            printer.printShapeName(hexagon);
             hexagon.example();
-        }
-        else if(num==5){
-            System.out.println(line.toString());
+        } else if (num == 5) {
+
             line.example();
+        } else if (num == 6) {
+            printer.printShapeName(triangle);
+            triangle.example();
         }
-        else if(num==6){
-            System.out.println(thriangle.toString());
-            thriangle.example();
-        }
-
         in.close();
-
+    }
+}
+class ShapeNamePrinter {
+    public void printShapeName(Shape shape) {
+        String shapeName = shape.getName();
+        System.out.println("The name of the shape is: " + shapeName);
     }
 }
 abstract class Shape{
     public abstract String getName();
-    public abstract String toString();
+    //public abstract String toString();
 
     public abstract void example();
 }
@@ -55,11 +56,7 @@ class Circle extends Shape{
     public String getName() {
         return "Circle";
     }
-    @Override
-    public String toString() {
-        return "Name chosen shape is: " + getName();
-    }
-    @Override
+   @Override
     public void example(){
         System.out.println("For example:");
         int r = 4;
@@ -88,10 +85,6 @@ class Quad extends Shape{
     }
 
     @Override
-    public String toString() {
-        return "Name chosen shape is: " + getName();
-    }
-    @Override
     public void example(){
     System.out.println("For example:");
         int size = 7;
@@ -116,10 +109,6 @@ class Star extends Shape{
         return "Star";
     }
 
-    @Override
-    public String toString() {
-        return "Name chosen shape is: " + getName();
-    }
     @Override
     public void example(){
         System.out.println("For example:");
@@ -147,10 +136,6 @@ class Hexagon extends Shape {
         return "Hexagon";
     }
 
-    @Override
-    public String toString() {
-        return "Name chosen shape is: " + getName();
-    }
 
     @Override
     public void example() {
@@ -189,10 +174,6 @@ class Line extends Shape{
     }
 
     @Override
-    public String toString() {
-        return "Name chosen shape is: " + getName();
-    }
-    @Override
     public void example(){
         System.out.println("For example:");
         int length = 10;
@@ -208,10 +189,6 @@ class Thriangle extends Shape {
         return "Thriangle";
     }
 
-    @Override
-    public String toString() {
-        return "Name chosen shape is: " + getName();
-    }
     @Override
     public void example(){
         System.out.println("For example:");
